@@ -11,6 +11,8 @@
   "dependencies": {
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
+    "dotenv": "^16.1.4",
+    "mongoose": "^7.3.0",
     "next": "13.4.5",
     "postcss": "8.4.24",
     "react": "18.2.0",
