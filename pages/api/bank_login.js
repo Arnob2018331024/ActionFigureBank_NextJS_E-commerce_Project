@@ -11,7 +11,7 @@ export default function handler(req, res) {
             else
                 BankUser.find({email:user.email,password:user.password}).then(result=>{
                     console.log(result)
-                    if(result[0].email!=null)
+                    if(result.length!==0)
                         {
                         res.status(200).json({name:result[0].name,email:result[0].email,balance:result[0].balance,type:"general"})}
                     else

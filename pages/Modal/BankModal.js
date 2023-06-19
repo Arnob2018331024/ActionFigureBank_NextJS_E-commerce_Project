@@ -42,7 +42,8 @@ const Modal = ({user}) => {
 
 
   useEffect(()=>{
-    if(user.bank)
+    console.log(JSON.parse(localStorage.getItem("shop_user")) )
+    if(!JSON.parse(localStorage.getItem("shop_user")).bank)
         toggleModal()
   },[])
   return (
