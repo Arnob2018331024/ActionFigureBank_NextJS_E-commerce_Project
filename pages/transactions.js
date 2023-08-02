@@ -2,6 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useRouter } from 'next/router';
 
+import { Toaster,toast } from "react-hot-toast"
+
 export default function App({ Component, pageProps }) {
 
   const router = useRouter();
@@ -56,6 +58,9 @@ let submit=(e)=>{
         })
         newtransactions.push(res.data)
         setTransactions(newtransactions)
+        toast.success("Trasaction successful!")
+        e.target.email.value=""
+        e.target.amount.value=""
         hideErrorMessage()
     })
     
@@ -121,6 +126,10 @@ return(
       
     </div>
   </div>
+  <Toaster
+			position="top-center"
+			reverseOrder={false}
+			/>
 </div>
 )
 }

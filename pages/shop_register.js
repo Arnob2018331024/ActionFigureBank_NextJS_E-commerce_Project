@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import { Toaster,toast } from "react-hot-toast"
+
 export default function App({ Component, pageProps }) {
   const [message,setMessage]=useState({})
   let route=useRouter()
@@ -17,7 +19,8 @@ export default function App({ Component, pageProps }) {
               route.push("/shop")
           }
       }).catch(e=>{
-          showMessage({head:"Sorry! ",body:"Email already exists"})
+          toast.error("Email already exists!")
+          //showMessage({head:"Sorry! ",body:"Email already exists"})
           
       })    
   })
@@ -74,6 +77,10 @@ return(
                 <span class="block sm:inline">{message.body}</span>
   </div>
         
+  <Toaster
+			position="top-center"
+			reverseOrder={false}
+			/>
 
   <div class="footer">
     <p>&copy; 2023 Your Company. All rights reserved.</p>

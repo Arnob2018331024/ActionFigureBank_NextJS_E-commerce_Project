@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+import { Toaster,toast } from "react-hot-toast"
+
 
 export default function Login() {
     const [errorMessage,setErrorMessage]=useState("");
@@ -32,6 +34,11 @@ export default function Login() {
         
       </div>
     </div>
+
+    <Toaster
+			position="top-center"
+			reverseOrder={false}
+			/>
   </div>
     )
 
@@ -45,7 +52,8 @@ export default function Login() {
         if(user.error)
         {
           const alertElement = document.getElementById("alert");
-          alertElement.style.display = "block";
+          //alertElement.style.display = "block";
+          toast.error("Wrong email or password!")
           setErrorMessage(user.error)
         }
         else

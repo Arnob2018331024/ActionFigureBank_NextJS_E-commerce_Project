@@ -23,19 +23,16 @@ export default function handler(req, res) {
         newtransaction.save().then(result=>{
           BankUser.findOneAndUpdate(
             { email: req.body.user.bank.email },
-            { $inc: { balance: -amount } },
-            { new: true }
+            { $inc: { balance: -amount } }
             )
             .then((user) => {
               BankUser.findOneAndUpdate(
                 { email: "ecommerce@example.com"},
-                { $inc: { balance: 1000 } },
-                { new: true }
+                { $inc: { balance: 1000 } }
                 ).then(user=>{
                   BankUser.findOneAndUpdate(
                     { email: "seller@example.com"},
-                    { $inc: { balance: amount-1000 } },
-                    { new: true }
+                    { $inc: { balance: amount-1000 } }
                     ).then(user=>{
                       const newtransaction2 = new Transaction({to:"seller@example.com",from:"ecommerce@example.com",amount:amount-1000,time})
                       newtransaction2.save().then(trn=>

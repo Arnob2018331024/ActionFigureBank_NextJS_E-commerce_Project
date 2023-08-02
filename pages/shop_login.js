@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import { Toaster,toast } from "react-hot-toast"
 
 export default function App({ Component, pageProps }) {
     const [message,setMessage]=useState({})
@@ -21,11 +22,13 @@ export default function App({ Component, pageProps }) {
                 route.push("/seller_dashboard")
             }
             else{
-                showMessage({head:"Sorry! ",body:"Incorrect email password"})
+                //showMessage({head:"Sorry! ",body:"Incorrect email password"})
+                toast.error("Incorrect email password!")
             }
 
         }).catch(e=>{
-            showMessage({head:"Sorry! ",body:"Incorrect email password"})
+            toast.error("Incorrect email password!")
+            //showMessage({head:"Sorry! ",body:"Incorrect email password"})
             
         })    
     })
@@ -79,7 +82,10 @@ export default function App({ Component, pageProps }) {
                 <strong class="font-bold">{message.head} </strong>
                 <span class="block sm:inline">{message.body}</span>
         </div>
-        
+        <Toaster
+			position="top-center"
+			reverseOrder={false}
+			/>
 
         <div class="footer">
             <p>&copy; 2023 Your Company. All rights reserved.</p>

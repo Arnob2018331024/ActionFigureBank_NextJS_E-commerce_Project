@@ -9,6 +9,7 @@ export default function () {
 
   useEffect(()=>{
       axios.get("/api/get_accepted_requests").then(res=>{
+        //console.log(res.data)
         setOrders(res.data)
       })
     },[])
@@ -45,6 +46,7 @@ export default function () {
               <th class="py-2 px-4 border-b">Product 1</th>
               <th class="py-2 px-4 border-b">Product 2</th>
               <th class="py-2 px-4 border-b">Product 3</th>
+              <th class="py-2 px-4 border-b">Time</th>
              </tr>
           </thead>
           <tbody>
@@ -56,6 +58,8 @@ export default function () {
               <td class="border-b py-2 px-2 ">{order.cproduct1}</td>
               <td class="border-b py-2 px-2 ">{order.cproduct2}</td>
               <td class="border-b py-2 px-2 ">{order.cproduct3}</td>
+              <td class="border-b py-2 px-2 ">{order.time}</td>
+              
             </tr>)}
           </tbody>
         </table>

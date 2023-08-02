@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import Modal from "./Modal/BankModal"
 import { useRouter } from "next/router"
+import { Toaster,toast } from "react-hot-toast"
 
 export default function App({ Component, pageProps }) {
     const [product1,setProduct1]=useState(0)
@@ -45,7 +46,8 @@ export default function App({ Component, pageProps }) {
         e.preventDefault();
         if(cproduct1===0&&cproduct2===0&&cproduct3===0)
             {
-            showMessage({head:"Sorry! ",body:"no items in the cart"})
+            //showMessage({head:"Sorry! ",body:"no items in the cart"})
+			toast.error("Sorry no items in the cart!")
             return
             }
         let name=e.target.name.value
@@ -71,9 +73,11 @@ export default function App({ Component, pageProps }) {
 			e.target.phone.value=""
 			e.target.name.value=""
 			document.querySelector('.sidebar').classList.remove("open")
-            showMessage({head:"Message! ",body:"order placed."})
+            //showMessage({head:"Message! ",body:"order placed."})
+			toast.success("Oreder Placed!")
         }).catch(error=>{
-			showMessage({head:"Sorry! ",body:"insufficient balance."})
+			//showMessage({head:"Sorry! ",body:"insufficient balance."})
+			toast.error("Insufficient Balance!")
 		})
     }
 
@@ -266,7 +270,7 @@ return(<div>
 				  <img src="product1.jpg" alt="Product 1"/>
 				  <h3>One Piece Figures – Monkey D. Luffy 25cm PVC Action Figure</h3>
 				  <p>Size: about 25cm hight Material: High Quality PVC Function: Collection, Decorations, Gifts And Other<br/>
-				  price:<b>10000 Tk</b>
+				  price:<b>24000 Tk</b>
 				  </p>
 				  <div class="quantity-container">
 				    <div class="quantity">
@@ -274,21 +278,21 @@ return(<div>
 				      <input type="number" value={product1} min="0" class="border border-gray-300 px-3 py-2 text-center w-16"/>
 				      <button class="increment bg-black text-white px-3 py-2 rounded-r" onClick={(e)=>increment(1)}>+</button>
 				    </div>
-				    <button class="add-to-cart ml-4" onClick={(e)=>{setCProduct1(product1);showMessage({head:"Message!",body:"Cart Updated"})}}>Add to Cart</button>
+				    <button class="add-to-cart ml-4" onClick={(e)=>{setCProduct1(product1);toast.success("Cart Updated!")}}>Add to Cart</button>
 				  </div>
 				</div>
 
 				<div class="product-card">
 				  <img src="product2.jpg" alt="Product 2"/>
 				  <h3>Hot New 23-28CM Gear Fourth Luffy Bound Man Figure	</h3>
-				  <p>Material: PVC Package protection: bubble column protection<br/>price:<b>10000 Tk</b></p>
+				  <p>Material: PVC Package protection: bubble column protection<br/>price:<b>14000 Tk</b></p>
 				  <div class="quantity-container">
 				    <div class="quantity">
 				      <button class="decrement bg-black text-white px-3 py-2 rounded-l" onClick={(e)=>decrement(2)}>-</button>
 				      <input type="number" value={product2} min="0" class="border border-gray-300 px-3 py-2 text-center w-16"/>
 				      <button class="increment bg-black text-white px-3 py-2 rounded-r" onClick={(e)=>increment(2)}>+</button>
 				    </div>
-				    <button class="add-to-cart ml-4" onClick={(e)=>{setCProduct2(product2);showMessage({head:"Message!",body:"Cart Updated"})}}>Add to Cart</button>
+				    <button class="add-to-cart ml-4" onClick={(e)=>{setCProduct2(product2);toast.success("Cart Updated!")}}>Add to Cart</button>
 				  </div>
 				</div>
 
@@ -300,7 +304,7 @@ return(<div>
 				    Model Sort: Remastered Model
 				    Theme: Film & TV
 				    Materials: PVC<br/>
-				    price:<b>10000 Tk</b>
+				    price:<b>60000 Tk</b>
 				  </p>
 				  <div class="quantity-container">
 				    <div class="quantity">
@@ -308,7 +312,7 @@ return(<div>
 				      <input type="number" value={product3} min="0" class="border border-gray-300 px-3 py-2 text-center w-16"/>
 				      <button class="increment bg-black text-white px-3 py-2 rounded-r" onClick={(e)=>increment(3)}>+</button>
 				    </div>
-				    <button class="add-to-cart ml-4" onClick={(e)=>{setCProduct3(product3);showMessage({head:"Message!",body:"Cart Updated"})}}>Add to Cart</button>
+				    <button class="add-to-cart ml-4" onClick={(e)=>{setCProduct3(product3);toast.success("Cart Updated!")}}>Add to Cart</button>
 				  </div>
 				</div>
 			</div>
@@ -317,6 +321,10 @@ return(<div>
                 <strong class="font-bold">{message.head} </strong>
                 <span class="block sm:inline">{message.body}</span>
             </div>
+			<Toaster
+			position="top-center"
+			reverseOrder={false}
+			/>
 			<div class="footer">
 				<p>&copy; 2023 Online Shopping Site. All rights reserved.</p>
 			</div>

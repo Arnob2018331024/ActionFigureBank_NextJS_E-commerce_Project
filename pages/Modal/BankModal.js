@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { Toaster,toast } from "react-hot-toast"
 
 const Modal = ({user}) => {
     console.log(user)
@@ -33,6 +34,7 @@ const Modal = ({user}) => {
         toggleModal()
     }).catch(e=>
         showMessage({head:"Sorry! ",body:"Wrong email password"}))
+        toast.error("Wrong email password!")
     // Handle login functionality
   };
   let handleLogout=(e)=>{
@@ -101,6 +103,10 @@ const Modal = ({user}) => {
                 <strong class="font-bold">{message.head} </strong>
                 <span class="block sm:inline">{message.body}</span>
         </div>
+        <Toaster
+        position="top-center"
+        reverseOrder={false}
+        />
         </div>
       )}
         

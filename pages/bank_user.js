@@ -41,9 +41,9 @@ return(<div>
           </div>
         </div>
       </div>
-      <form class="p-4" action="logout.php" method="post">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"  onClick={e=>{localStorage.removeItem("user");router.push('/bank_login');}}>Logout</button>
-      </form>
+      <div class="my-8 mx-auto" >
+        <button class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"  onClick={e=>{localStorage.removeItem("user");router.push('/bank_login');}}>Logout</button>
+      </div>
     </div>
 
     <div class="bg-gray-100 flex-grow p-4">
