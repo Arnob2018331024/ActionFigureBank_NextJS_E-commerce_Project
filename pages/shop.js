@@ -270,7 +270,7 @@ return(<div>
 				  <img src="product1.jpg" alt="Product 1"/>
 				  <h3>One Piece Figures – Monkey D. Luffy 25cm PVC Action Figure</h3>
 				  <p>Size: about 25cm hight Material: High Quality PVC Function: Collection, Decorations, Gifts And Other<br/>
-				  price:<b>24000 Tk</b>
+				  price:<b>14000 Tk</b>
 				  </p>
 				  <div class="quantity-container">
 				    <div class="quantity">
@@ -285,7 +285,7 @@ return(<div>
 				<div class="product-card">
 				  <img src="product2.jpg" alt="Product 2"/>
 				  <h3>Hot New 23-28CM Gear Fourth Luffy Bound Man Figure	</h3>
-				  <p>Material: PVC Package protection: bubble column protection<br/>price:<b>14000 Tk</b></p>
+				  <p>Material: PVC Package protection: bubble column protection<br/>price:<b>24000 Tk</b></p>
 				  <div class="quantity-container">
 				    <div class="quantity">
 				      <button class="decrement bg-black text-white px-3 py-2 rounded-l" onClick={(e)=>decrement(2)}>-</button>
@@ -316,7 +316,7 @@ return(<div>
 				  </div>
 				</div>
 			</div>
-			<Modal user={user}/>
+			<Modal user={user} setUser={setUser}/>
             <div class="bg-blue-200 border border-blue-400 text-blue-700  rounded fixed bottom-0 left-0 " id="message" role="alert">
                 <strong class="font-bold">{message.head} </strong>
                 <span class="block sm:inline">{message.body}</span>

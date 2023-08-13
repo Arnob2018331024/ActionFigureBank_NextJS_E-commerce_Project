@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Toaster,toast } from "react-hot-toast"
 
-const Modal = ({user}) => {
+const Modal = ({user,setUser}) => {
     console.log(user)
   const [isOpen, setIsOpen] = useState(false);
   const [message,setMessage]=useState({})
@@ -30,11 +30,15 @@ const Modal = ({user}) => {
     let password=e.target.password.value
     axios.post("/api/shop_bank_login",{user:localStorage.getItem("shop_user"),bank:{email,password}}).then(res=>{
         console.log(res.data)
+        
         localStorage.setItem("shop_user",JSON.stringify(res.data))
+        setUser(res.data)
         toggleModal()
     }).catch(e=>
-        showMessage({head:"Sorry! ",body:"Wrong email password"}))
-        toast.error("Wrong email password!")
+     { showMessage({head:"Sorry! ",body:"Wrong email password"})
+        toast.error("Wrong email password!") 
+    }
+        )
     // Handle login functionality
   };
   let handleLogout=(e)=>{

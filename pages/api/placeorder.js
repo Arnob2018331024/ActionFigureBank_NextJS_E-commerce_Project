@@ -12,6 +12,7 @@ export default function handler(req, res) {
         let from=account.email
         let to="ecommerce@example.com"
         let amount=14000*order.cproduct1+24000*order.cproduct2+60000*order.cproduct3
+        let amount2=Math.ceil(amount*1.0/100*10)
         let time=new Date().toLocaleString('en-GB', {
             day: '2-digit',
             month: '2-digit',
@@ -28,13 +29,13 @@ export default function handler(req, res) {
             .then((user) => {
               BankUser.findOneAndUpdate(
                 { email: "ecommerce@example.com"},
-                { $inc: { balance: 1000 } }
+                { $inc: { balance: amount2 } }
                 ).then(user=>{
                   BankUser.findOneAndUpdate(
                     { email: "seller@example.com"},
-                    { $inc: { balance: amount-1000 } }
+                    { $inc: { balance: amount-amount2 } }
                     ).then(user=>{
-                      const newtransaction2 = new Transaction({to:"seller@example.com",from:"ecommerce@example.com",amount:amount-1000,time})
+                      const newtransaction2 = new Transaction({to:"seller@example.com",from:"ecommerce@example.com",amount:amount-amount2,time})
                       newtransaction2.save().then(trn=>
                         {console.log(trn)
                           const order=new Order({
