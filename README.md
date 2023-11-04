@@ -10,18 +10,18 @@ This is an E-commerse website which sells action figures. The products are suppl
 
 ## Technologies Used
 
-- Reactjs
+- NextJS
+- NodeJS
+- MongoDB
 - Tailwind CSS
-- Nextjs
-- Nodejs
 
 
 
 ## Getting Started
 
 - First clone the repository to your local machine.
-- Then open it with any IDE.
-- After that open terminal and run 'npm install'. This will download all the packages needed.
+- After that open terminal in the cloned directory and run 'npm install'. This will download all the packages needed.
 - Then run 'npm run dev'.
+- If the website is not automaticlly opened in default browser look for local host url in the terminal.
   
 
