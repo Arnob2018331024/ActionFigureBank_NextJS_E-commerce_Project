@@ -23,5 +23,11 @@ This is an E-commerse website which sells action figures. The products are suppl
 - After that open terminal in the cloned directory and run 'npm install'. This will download all the packages needed.
 - Then run 'npm run dev'.
 - If the website is not automaticlly opened in default browser look for local host url in the terminal.
+
+  
+## Video Demonstration Of The Project
+https://github.com/Arnob2018331024/ActionFigureBank_NextJS_E-commerce_Project/assets/52965934/0bfb728e-d26d-4045-ab72-177d3baadcb2
+
+
   
 
